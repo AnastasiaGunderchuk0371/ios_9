@@ -16,5 +16,3 @@ var myCollection = IOSCollection(videos: ["Introduction", "Advanced Topics"])
 var friendCollection = myCollection
 
 myCollection.addVideo("SwiftUI Basics")
-print(myCollection.videos) // ["Introduction", "Advanced Topics", "SwiftUI Basics"]
-print(friendCollection.videos) // ["Introduction", "Advanced Topics"]
