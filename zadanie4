@@ -1,13 +1,12 @@
+// Протокол GameDice
 protocol GameDice {
     var numberDice: Int { get }
 }
 
+// Расширение Int для применения к протоколу GameDice
 extension Int: GameDice {
     var numberDice: Int {
         print("Выпало \(self) на кубике")
         return self
     }
 }
-
-let diceCoub = 6
-let result = diceCoub.numberDice
