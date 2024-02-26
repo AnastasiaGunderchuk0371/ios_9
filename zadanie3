@@ -1,7 +1,9 @@
+// Протокол Hotel
 protocol Hotel {
     init(roomCount: Int)
 }
 
+// Класс HotelAlfa подписанный на протокол Hotel
 class HotelAlfa: Hotel {
     var roomCount: Int
 
@@ -9,5 +11,3 @@ class HotelAlfa: Hotel {
         self.roomCount = roomCount
     }
 }
-
-let hotelAlfa = HotelAlfa(roomCount: 50)
