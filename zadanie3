@@ -11,5 +11,3 @@ class HotelAlfa: Hotel {
 }
 
 let hotelAlfa = HotelAlfa(roomCount: 50)
-
-print("Количество комнат в отеле Alfa: \(hotelAlfa.roomCount)")
