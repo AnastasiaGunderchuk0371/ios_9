@@ -1,18 +1,38 @@
-struct IOSCollection {
-    var videos: [String]
+// Структура IOSCollection с использованием copy on write
+struct IOSCollection<Element>: CustomStringConvertible {
 
-    init(videos: [String]) {
-        self.videos = videos
+    private var elements: [Element]
+
+    // Публичный инициализатор
+    init(elements: [Element]) {
+        self.elements = elements
     }
 
-    mutating func addVideo(_ video: String) {
-        var newCollection = self
-        newCollection.videos.append(video)
-        self = newCollection
+    // Метод добавления элемента
+    mutating func append(_ newElement: Element) {
+        elements.append(newElement)
+    }
+
+    // Метод для доступа к элементам по индексу
+    subscript(index: Int) -> Element {
+        get {
+            return elements[index]
+        }
+        set {
+            elements[index] = newValue
+        }
+    }
+
+    // Отображение содержимого для примера
+    var description: String {
+        return "IOSCollection with elements: (elements)"
     }
 }
 
-var myCollection = IOSCollection(videos: ["Introduction", "Advanced Topics"])
-var friendCollection = myCollection
+// Пример использования
+var iosCollection = IOSCollection(elements: [1, 2, 3])
+print(iosCollection)  // Output: IOSCollection with elements: [1, 2, 3]
 
-myCollection.addVideo("SwiftUI Basics")
+// Добавление элемента
+iosCollection.append(4)
+print(iosCollection)  // Output: IOSCollection with elements: [1, 2, 3, 4]
